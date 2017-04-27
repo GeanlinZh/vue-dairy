@@ -1,18 +1,26 @@
 # vue-dairy
 
-> A Vue.js project
-
-## Build Setup
-
-``` bash
-# install dependencies
-npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+```
+多人博客系统前台界面
+[在线地址](http://http://www.secretlove.top/)
+```
+## 环境依赖模块
+```
+vue-cli
+vue-router
+vuex
+axios
+moment-timezone
+vue-waterfall
+wangeditor
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+## 运行程序
+```
+npm install
+npm run dev
+```
+
+## 后台接口
+
+[dairy-api](https://github.com/xuyd/dairy-api)
