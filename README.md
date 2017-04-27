@@ -1,6 +1,6 @@
 # vue-dairy
 
-[在线地址](http://http://www.secretlove.top/)
+[在线地址](http://www.secretlove.top/)
 ```
 多人博客系统
 ```
