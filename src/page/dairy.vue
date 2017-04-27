@@ -33,7 +33,7 @@
                                     <span class="hide_mobile" title="留言"><i class="iconfont icon-comments"></i> {{arcitle.commentCount}}</span>
                                 </div>
                             </div>
-                       </div>
+                        </div>
                     </div>
                     <div class="panel_msg">
                         <template v-if="getArticleList.status == 0">加载更多</template>
@@ -70,10 +70,10 @@
                                     </router-link>
                                 </div>
                                 <div class="col-xs-4 panel_homepage_box">
-                                    <a href="javascript:void(0)">
-                                        <strong>0</strong>
+                                    <router-link :to="{ name: 'userAlbum', params: { uid: getAuth.id }}">
+                                        <strong>{{getAuth.photoCount}}</strong>
                                         <span>图片</span>
-                                    </a>
+                                    </router-link>
                                 </div>
                             </div>
                         </div>
@@ -81,18 +81,18 @@
 
                     <div class="panel_s">
                         <h5>
-                           标签
+                            标签
                         </h5>
                         <div class="panel_s_body">
                             <ul class="ul_text">
-                               <li v-for="(tag,index) in getTags">
-                                   <a href="javascript:void(0)" v-bind:class="{link: tagName==getTags[index]}" @click="tagChange(index)">{{tag}}</a>
-                               </li>
+                                <li v-for="(tag,index) in getTags">
+                                    <a href="javascript:void(0)" v-bind:class="{link: tagName==getTags[index]}" @click="tagChange(index)">{{tag}}</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-           </div>
+            </div>
         </div>
     </div>
 </template>
