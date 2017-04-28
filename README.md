@@ -15,6 +15,16 @@ moment-timezone
 vue-waterfall
 wangeditor
 ```
+## 前台页面
+- canvas粒子效果
+- 登录/注册
+- 添加文章
+- 编辑文章
+- 搜索文章
+- 下拉加载列表
+- 文章留言
+- H5多图上传
+- 图片瀑布流布局
 
 ## 运行程序
 ```
