@@ -33,7 +33,7 @@
                                     <span class="hide_mobile" title="留言"><i class="iconfont icon-comments"></i> {{arcitle.commentCount}}</span>
                                 </div>
                             </div>
-                        </div>
+                       </div>
                     </div>
                     <div class="panel_msg">
                         <template v-if="getArticleList.status == 0">加载更多</template>
@@ -41,7 +41,7 @@
                         <template v-if="getArticleList.status == 2">没有更多日记啦</template>
                     </div>
                 </div>
-                <div class="col-md-3 pad_l0">
+                <div class="col-md-3 pad_l0 hide_mobile">
                     <div class="panel_s" v-if="getAuth">
                         <div class="panel_head">
                             <div class="panel_head_img">
@@ -81,18 +81,18 @@
 
                     <div class="panel_s">
                         <h5>
-                            标签
+                           标签
                         </h5>
                         <div class="panel_s_body">
                             <ul class="ul_text">
-                                <li v-for="(tag,index) in getTags">
-                                    <a href="javascript:void(0)" v-bind:class="{link: tagName==getTags[index]}" @click="tagChange(index)">{{tag}}</a>
-                                </li>
+                               <li v-for="(tag,index) in getTags">
+                                   <a href="javascript:void(0)" v-bind:class="{link: tagName==getTags[index]}" @click="tagChange(index)">{{tag}}</a>
+                               </li>
                             </ul>
                         </div>
                     </div>
                 </div>
-            </div>
+           </div>
         </div>
     </div>
 </template>

@@ -17,7 +17,7 @@
                     <div class="photo_box_top">
                         <span class="photo_like" @click="photoLikeBtn(item._id,index)"><i class="iconfont icon-like"></i> {{item.likeCount}}</span>
                     </div>
-                    <img :src="item.thumbnail">
+                    <img :src="item.thumbnail" @click="showPhotoModal(item, index)">
                 </div>
             </waterfall-slot>
         </waterfall>
@@ -26,26 +26,36 @@
             <template v-if="getPhotoList.status == 1">加载中...</template>
             <template v-if="getPhotoList.status == 2">没有更多照片啦</template>
         </div>
+        <com-photoModal
+            v-model="show"
+            :value="show"
+            :photoModal="photoModal"
+            :index="index">
+        </com-photoModal>
     </div>
 </template>
 
 <script>
     import { waterfall, waterfallSlot } from 'vue-waterfall'
+    import photoModal from '../components/photoModal'
     import { mapGetters ,mapActions } from 'vuex'
 
     export default {
         data(){
             return {
-
+                show: false,
+                photoModal: {},
+                index: null
             }
         },
         components: {
             'waterfall': waterfall,
-            'waterfallSlot': waterfallSlot
+            'waterfallSlot': waterfallSlot,
+            'comPhotoModal': photoModal
         },
         computed: {
             ...mapGetters({
-                getPhotoList: 'getPhotoList',
+                getPhotoList: 'getPhotoList'
             }),
             ...mapActions({
                 photoList: 'photoList',
@@ -78,6 +88,12 @@
                     pid: pid,
                     index: index
                 });
+            },
+            showPhotoModal(item,index){
+                this.photoModal = item;
+                this.index = index;
+                this.show = true;
+
             }
         },
         beforeDestroy () {

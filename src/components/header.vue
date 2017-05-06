@@ -2,6 +2,18 @@
     <div class="header">
         <div class="container">
             <div class="logo"><router-link to="/"><img src="/static/img/logo.png" alt="眼镜日记" width="150" height="50"></router-link></div>
+            <div class="nav_category" @click="toggleNav"><i class="iconfont icon-category"></i></div>
+            <div class="nav_mobile" v-show="showNav" @click="toggleNav">
+                <ul>
+                    <li><router-link to="/"  class="nav_mobile_a">主页</router-link></li>
+                    <li><router-link to="/dairy" class="nav_mobile_a">日记</router-link></li>
+                    <li><router-link to="/photo" class="nav_mobile_a">照片墙</router-link></li>
+                    <li v-if="!getAuth"><router-link to="/login" class="nav_mobile_a">登录</router-link></li>
+                    <li v-else>
+                        <router-link :to="{ name: 'userIndex', params: { uid: getAuth.id }}">{{getAuth.nickname}}</router-link>
+                    </li>
+                </ul>
+            </div>
             <div class="nav clearfix">
                 <ul>
                     <li><router-link to="/"  class="nav_a" active-class="nav_active" exact>主页</router-link></li>
@@ -32,7 +44,7 @@
     export default {
         data(){
             return {
-
+                showNav: false
             }
         },
         computed: {
@@ -53,6 +65,9 @@
         methods:{
             logout(){
                 this.$store.dispatch('userLogout');
+            },
+            toggleNav(){
+                this.showNav = !this.showNav;
             }
         }
     }

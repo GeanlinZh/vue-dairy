@@ -28,7 +28,7 @@
         <div class="panel_s" v-if="getUser.info.friend">
             <h5>小伙伴</h5>
             <div class="panel_s_body">
-                <router-link :to="{ name: 'userTogether', params: { uid: getUser.info.id }}">
+                <router-link :to="{ name: 'userTogether', params: { uid: getUser.info.friend._id }}">
                     <img class="circle" :src="getUser.info.friend.header" alt="" width="50" height="50">
                     <strong>{{getUser.info.friend.nickname}}</strong>
                 </router-link>

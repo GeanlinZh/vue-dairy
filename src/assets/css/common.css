@@ -1808,6 +1808,29 @@ a:hover{
     float: left;
     margin-top: 5px;
 }
+.nav_category{
+    display: none;
+    float: right;
+    margin-top: 5px;
+    padding: 0 15px;
+    line-height: 50px;
+    font-size: 26px;
+}
+.nav_mobile{
+    display: none;
+    position: absolute;
+    top: 55px;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    background: rgba(255,255,255,0.9);
+    padding: 8px 0;
+    z-index: 10;
+}
+.nav_mobile > ul >li >a {
+    display: block;
+    padding: 8px 15px;
+}
 /*header end*/
 
 /*search*/
@@ -2664,6 +2687,7 @@ a:hover{
     position: relative;
     padding: 7px;
     margin-right: 15px;
+    cursor: zoom-in;
 }
 .photo_box:hover .photo_box_top{
     opacity: 1;
@@ -2676,8 +2700,11 @@ a:hover{
     background-color: #fff;
     top: 7px;
     right: 7px;
-    padding: 5px;
+    padding: 5px 10px;
     border-bottom-left-radius: 5px;
+    cursor: pointer;
+}
+.photo_like{
     cursor: pointer;
 }
 .photo_like i{
@@ -2785,6 +2812,12 @@ a:hover{
     }
     .nav {
         display: none;
+    }
+    .nav_category{
+        display: block;
+    }
+    .nav_mobile {
+        display: block;
     }
     .hide_mobile{
         display: none !important;

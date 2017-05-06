@@ -123,6 +123,7 @@
                 this.newArticleContent.content = this.editor.$txt.html();
                 if(this.newArticleContent.status === false) this.newArticleContent.status = 0;
                 if(this.newArticleContent.status === true) this.newArticleContent.status = 1;
+                this.newArticleContent.image = this.editor.$txt.find('img').eq(0).attr('src');
                 this.$store.dispatch('editArticle', this.newArticleContent);
             }
         },
