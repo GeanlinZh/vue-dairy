@@ -1,16 +1,16 @@
 <template>
     <transition name="photo_modal">
-        <div class="photo_modal text-center" v-show="value">
+        <div class="photo_modal text-center" v-show="value && loading">
             <div class="photo_modal_dialog panel text-left">
                 <div class="panel_tit">
                     <h4>照片</h4>
                 </div>
-                <div class="panel_body text-center">
-                    <img :src="photoModal.photo" @click="close">
+                <div class="panel_body text-center" @click="close">
+                    <img :src="photoModal.photo">
                 </div>
                 <div class="panel_foot" v-if="photoModal.userId">
-                    <span><i class="iconfont icon-account"></i> <a class="link">{{photoModal.userId.nickname}}</a></span>
-                    <span title="日期"><i class="iconfont icon-clock"></i>{{photoModal.created | date}}</span>
+                    <span title="日期"><i class="iconfont icon-clock"></i> {{photoModal.created | date}}</span>
+                    <span><i class="iconfont icon-account"></i> <a class="link"> {{photoModal.userId.nickname}}</a></span>
                     <span class="photo_like" @click="photoLikeBtn(photoModal._id,index)"><i class="iconfont icon-like"></i> {{photoModal.likeCount}}</span>
                 </div>
             </div>
@@ -24,7 +24,7 @@
     export default {
         data(){
             return {
-
+                loading: false
             }
         },
         props:{
@@ -50,6 +50,7 @@
         },
         methods: {
             close(){
+                this.loading = false;
                 this.$emit('input', false);
             },
             photoLikeBtn(pid,index){
@@ -57,6 +58,21 @@
                     pid: pid,
                     index: index
                 });
+            }
+        },
+        watch:{
+            value(){
+                if(this.value) {
+                    const self = this;
+                    const tempImage = new Image();
+                    tempImage.onload = function () {
+                        self.loading = true;
+                    };
+                    tempImage.onerror = function () {
+                        self.close();
+                    };
+                    tempImage.src = self.photoModal.photo;
+                }
             }
         },
         filters: {
@@ -91,9 +107,10 @@
         margin: 75px auto;
         transition: all .3s ease;
     }
-    .photo_modal_dialog img{
-        max-height: 600px;
+    .photo_modal_dialog .panel_body{
         cursor: zoom-out;
+    }.photo_modal_dialog img{
+        max-height: 600px;
     }
     .photo_modal-enter {
         opacity: 0;
