@@ -10,7 +10,7 @@
                 </div>
                 <div class="panel_foot" v-if="photoModal.userId">
                     <span title="日期"><i class="iconfont icon-clock"></i> {{photoModal.created | date}}</span>
-                    <span><i class="iconfont icon-account"></i> <a class="link"> {{photoModal.userId.nickname}}</a></span>
+                    <span><i class="iconfont icon-account"></i> <router-link :to="{ name: 'userAlbum', params: { uid:photoModal.userId._id }}" class="link"> {{photoModal.userId.nickname}}</router-link></span>
                     <span class="photo_like" @click="photoLikeBtn(photoModal._id,index)"><i class="iconfont icon-like"></i> {{photoModal.likeCount}}</span>
                 </div>
             </div>
