@@ -110,7 +110,7 @@
     .photo_modal_dialog .panel_body{
         cursor: zoom-out;
     }.photo_modal_dialog img{
-        max-height: 600px;
+        max-height: 450px;
     }
     .photo_modal-enter {
         opacity: 0;
