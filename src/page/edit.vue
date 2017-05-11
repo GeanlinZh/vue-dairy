@@ -78,7 +78,7 @@
             this.$store.dispatch('tags');
 
             const url = (process.env.NODE_ENV === 'production')
-                ? 'https://api.secretlove.top/article/upload'
+                ? 'http://api.secretlove.top/article/upload'
                 :'http://localhost:3000/article/upload';
 
             this.editor =  new WE('editor');
